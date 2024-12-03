@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Prediction Result</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        
+        <!-- Display User Information -->
+        <div class="user-info">
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Age:</strong> {{ age }}</p>
+            <p><strong>Gender:</strong> {{ gender }}</p>
+            <p><strong>Previous Diagnosis:</strong> {{ diagnosis }}</p>
+            <p><strong>Symptoms:</strong> {{ ', '.join(symptoms) }}</p>
+            <p><strong>Prediction:</strong> <span class="prediction">{{ prediction }}</span></p>
+        </div>
+
+        <!-- Display Uploaded Image -->
+        <div class="image-container">
+            <h3>Uploaded Image:</h3>
+            <img src="{{ image_path }}" alt="Uploaded Image" class="uploaded-image">
+        </div>
+
+        <!-- Form to Download the Report -->
+        <div class="report-download">
+            <form action="{{ url_for('generate_report') }}" method="POST">
+                <input type="hidden" name="name" value="{{ name }}">
+                <input type="hidden" name="age" value="{{ age }}">
+                <input type="hidden" name="gender" value="{{ gender }}">
+                <input type="hidden" name="diagnosis" value="{{ diagnosis }}">
+                <input type="hidden" name="symptoms" value="{{ ', '.join(symptoms) }}">
+                <input type="hidden" name="prediction" value="{{ prediction }}">
+                <input type="hidden" name="image_path" value="{{ image_path }}">
+                <button type="submit" class="download-button">Download Report</button>
+            </form>
+        </div>
+
+        <!-- Back to Homepage Button -->
+        <a href="/" class="back-button">Back to Homepage</a>
+    </div>
+</body>
+</html>

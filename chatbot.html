@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Chatbot</title>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Doctor Consultation Chatbot</h1>
+        <df-messenger
+        intent="WELCOME"
+        chat-title="KhushiPagaria"
+        agent-id="8ada7f3c-7cd0-426a-8799-364e7c756d6b"
+        language-code="en"
+        ></df-messenger>
+        <a href="/" class="back-button">Go Back to Homepage</a>
+    </div>
+</body>
+</html>
